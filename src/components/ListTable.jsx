@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useEffect, useState } from "react";
-import { AiOutlineStar } from "react-icons/ai";
+import { AiOutlineStar, AiOutlineClose } from "react-icons/ai";
 import { RiArrowDownSFill, RiArrowUpSFill } from "react-icons/ri";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import _ from "lodash";
@@ -13,7 +13,13 @@ const ListTable = () => {
   const [data, setData] = useState(null);
   const [paginatedData, setPaginatedData] = useState();
   const [currentPage, setCurrentPage] = useState(1);
+  const [toggle, setToggle] = useState(false);
+  const [popData, setPopData] = useState(null);
 
+  const showPopUp = (i) => {
+    setToggle(true);
+    setPopData(data[i]);
+  };
   useEffect(() => {
     axios
       .get(
@@ -64,7 +70,6 @@ const ListTable = () => {
             {paginatedData.map((crypto, idx) => {
               return (
                 <ListRow key={idx}>
-                  {console.log(crypto)}
                   <ListDetails>
                     <Flex>
                       <AiOutlineStar /> {crypto.market_cap_rank}
@@ -141,8 +146,9 @@ const ListTable = () => {
         </List>
         <NavPage>
           <Pages>
-            {pages.map((page) => (
+            {pages.map((page, idx) => (
               <PageNo
+                key={idx}
                 style={
                   page === currentPage
                     ? { border: `1px solid #115bb6` }
@@ -168,7 +174,10 @@ const ListTable = () => {
           <tbody>
             {paginatedData.map((crypto, idx) => {
               return (
-                <ListRow key={idx}>
+                <ListRow
+                  onClick={() => showPopUp(crypto.market_cap_rank - 1)}
+                  key={idx}
+                >
                   <ListDetails>
                     <Flex>
                       <Logo src={crypto.image} />
@@ -198,8 +207,9 @@ const ListTable = () => {
         </List>
         <NavPage>
           <Pages>
-            {pages.splice(0, 10).map((page) => (
+            {pages.splice(0, 10).map((page, idx) => (
               <PageNo
+                key={idx}
                 style={
                   page === currentPage
                     ? { border: `1px solid #115bb6` }
@@ -212,12 +222,152 @@ const ListTable = () => {
             ))}
           </Pages>
         </NavPage>
+
+        {toggle && (
+          <PopUp
+            onClick={() => {
+              setToggle(false);
+              setPopData(null);
+            }}
+          >
+            <PopUpContainer>
+              <Flex
+                style={{
+                  justifyContent: `space-between`,
+                }}
+              >
+                <Flex>
+                  <Logo src={popData.image} />
+                  {popData.name}
+                  <LogoSym>{popData.symbol}</LogoSym>
+                </Flex>
+                <Flex>
+                  <AiOutlineClose
+                    onClick={() => {
+                      setToggle(false);
+                      setPopData(null);
+                    }}
+                    style={{
+                      color: `#AAAAAA`,
+                      fontSize: `24px`,
+                    }}
+                  />
+                </Flex>
+              </Flex>
+              <Flex
+                style={{
+                  justifyContent: `space-between`,
+                  alignItems: `center`,
+                  textAlign: `center`,
+                  paddingTop: `10px`,
+                }}
+              >
+                <div>
+                  <div>PRICE</div>
+                  <div>
+                    $
+                    {popData.current_price
+                      .toString()
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </div>
+                </div>
+                <div>
+                  <div>24H</div>
+                  <div>
+                    <Wrap24H>
+                      <RiArrowDownSFill />
+                      {popData.price_change_percentage_24h_in_currency.toFixed(
+                        2
+                      )}
+                      %
+                    </Wrap24H>
+                  </div>
+                </div>
+                <div>
+                  <div>7D</div>
+                  <div>
+                    <Wrap7D>
+                      <RiArrowUpSFill />
+                      {popData.price_change_percentage_7d_in_currency.toFixed(
+                        2
+                      )}
+                      %
+                    </Wrap7D>
+                  </div>
+                </div>
+              </Flex>
+              <div style={{ paddingTop: `25px` }}>
+                <div>MARKET CAP</div>
+                <div>
+                  $
+                  {popData.market_cap
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                </div>
+              </div>
+              <div style={{ paddingTop: `25px` }}>
+                <div>VOLUME(24H)</div>
+                <div>
+                  $
+                  {popData.total_volume
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  {"  "}
+                  <span
+                    style={{
+                      letterSpacing: `-0.035em`,
+                      color: `#000000`,
+                      fontWeight: `400`,
+                      opacity: `0.5`,
+                    }}
+                  >
+                    (932,071 BTC)
+                  </span>
+                </div>
+              </div>
+              <div style={{ paddingTop: `25px` }}>
+                <div>CIRCULATING SUPPLY</div>
+                <div>
+                  {Math.ceil(popData.circulating_supply)
+                    .toString()
+                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+                  BTC
+                  <CirDivWrap>
+                    <Cirdiv></Cirdiv>
+                  </CirDivWrap>
+                </div>
+              </div>
+            </PopUpContainer>
+          </PopUp>
+        )}
       </MobView>
     </>
   );
 };
 
 export default ListTable;
+
+const PopUp = styled.div`
+  position: absolute;
+  background: #00000077;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+const PopUpContainer = styled.div`
+  font-weight: 500;
+  width: 358px;
+  height: 358px;
+  background: #ffffff;
+  opacity: 1;
+  border: 1px solid #dbdcdf;
+  border-radius: 10px;
+  padding: 15px;
+`;
 
 const NavPage = styled.div`
   padding: 0 10%;
