@@ -20,7 +20,7 @@ const ListHeader = () => {
           <RightButtons>
             <RightBtnText>Show Rows</RightBtnText>
             <RightBtn>
-              100
+              10
               <AiOutlineDown />
             </RightBtn>
           </RightButtons>
@@ -33,10 +33,7 @@ const ListHeader = () => {
 export default ListHeader;
 
 const Container = styled.div`
-  padding: 0 10%;
-  @media (max-width: 768px) {
-    padding: 0 5%;
-  }
+  padding: 0 5%;
 `;
 
 const Header = styled.div`
