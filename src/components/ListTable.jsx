@@ -139,6 +139,22 @@ const ListTable = () => {
             })}
           </tbody>
         </List>
+        <NavPage>
+          <Pages>
+            {pages.map((page) => (
+              <PageNo
+                style={
+                  page === currentPage
+                    ? { border: `1px solid #115bb6` }
+                    : { border: `1px solid #dfe3e8` }
+                }
+                onClick={() => pagination(page)}
+              >
+                {page}
+              </PageNo>
+            ))}
+          </Pages>
+        </NavPage>
       </WebView>
       <MobView>
         <List>
@@ -180,23 +196,23 @@ const ListTable = () => {
             })}
           </tbody>
         </List>
+        <NavPage>
+          <Pages>
+            {pages.splice(0, 10).map((page) => (
+              <PageNo
+                style={
+                  page === currentPage
+                    ? { border: `1px solid #115bb6` }
+                    : { border: `1px solid #dfe3e8` }
+                }
+                onClick={() => pagination(page)}
+              >
+                {page}
+              </PageNo>
+            ))}
+          </Pages>
+        </NavPage>
       </MobView>
-      <NavPage>
-        <Pages>
-          {pages.map((page) => (
-            <PageNo
-              style={
-                page === currentPage
-                  ? { border: `1px solid #115bb6` }
-                  : { border: `1px solid #dfe3e8` }
-              }
-              onClick={() => pagination(page)}
-            >
-              {page}
-            </PageNo>
-          ))}
-        </Pages>
-      </NavPage>
     </>
   );
 };
