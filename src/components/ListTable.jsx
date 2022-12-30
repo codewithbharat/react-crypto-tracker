@@ -18,67 +18,106 @@ const ListTable = () => {
   }, []);
 
   return (
-    <Container>
-      <List>
-        <thead>
-          <ListRow>
-            <ListTitle>#</ListTitle>
-            <ListTitle>Name</ListTitle>
-            <ListTitle>Price</ListTitle>
-            <ListTitle>24H</ListTitle>
-            <ListTitle>7D</ListTitle>
-            <ListTitle>Market Cap</ListTitle>
-            <ListTitle>Volume(24H)</ListTitle>
-            <ListTitle>Circulating Supply</ListTitle>
-          </ListRow>
-        </thead>
-        <tbody>
-          {data.splice(0, 10).map((crypto, idx) => {
-            return (
-              <ListRow key={idx}>
-                {console.log(crypto)}
-                <ListDetails>
-                  <Flex>
-                    <AiOutlineStar /> {idx + 1}
-                  </Flex>
-                </ListDetails>
-                <ListDetails>
-                  <Flex>
-                    <Logo src={crypto.image} />
-                    {crypto.name}
-                  </Flex>
-                </ListDetails>
-                <ListDetails>${crypto.current_price}</ListDetails>
-                <ListDetails>
-                  {crypto.price_change_percentage_24h_in_currency.toFixed(2)}%
-                </ListDetails>
-                <ListDetails>
-                  {crypto.price_change_percentage_7d_in_currency.toFixed(2)}%
-                </ListDetails>
-                <ListDetails>${crypto.market_cap}</ListDetails>
-                <ListDetails>${crypto.total_volume}</ListDetails>
-                <ListDetails>{crypto.circulating_supply} BTC</ListDetails>
-              </ListRow>
-            );
-          })}
-        </tbody>
-      </List>
-    </Container>
+    <>
+      <WebView>
+        <List>
+          <thead>
+            <ListRow>
+              <ListTitle>#</ListTitle>
+              <ListTitle>Name</ListTitle>
+              <ListTitle>Price</ListTitle>
+              <ListTitle>24H</ListTitle>
+              <ListTitle>7D</ListTitle>
+              <ListTitle>Market Cap</ListTitle>
+              <ListTitle>Volume(24H)</ListTitle>
+              <ListTitle>Circulating Supply</ListTitle>
+            </ListRow>
+          </thead>
+          <tbody>
+            {data.splice(0, 10).map((crypto, idx) => {
+              return (
+                <ListRow key={idx}>
+                  {console.log(crypto)}
+                  <ListDetails>
+                    <Flex>
+                      <AiOutlineStar /> {idx + 1}
+                    </Flex>
+                  </ListDetails>
+                  <ListDetails>
+                    <Flex>
+                      <Logo src={crypto.image} />
+                      {crypto.name}
+                    </Flex>
+                  </ListDetails>
+                  <ListDetails>${crypto.current_price}</ListDetails>
+                  <ListDetails>
+                    {crypto.price_change_percentage_24h_in_currency.toFixed(2)}%
+                  </ListDetails>
+                  <ListDetails>
+                    {crypto.price_change_percentage_7d_in_currency.toFixed(2)}%
+                  </ListDetails>
+                  <ListDetails>${crypto.market_cap}</ListDetails>
+                  <ListDetails>${crypto.total_volume}</ListDetails>
+                  <ListDetails>{crypto.circulating_supply} BTC</ListDetails>
+                </ListRow>
+              );
+            })}
+          </tbody>
+        </List>
+      </WebView>
+      <MobView>
+        <List>
+          <thead>
+            <ListRow>
+              <ListTitle>Name</ListTitle>
+              <ListTitle>Price</ListTitle>
+              <ListTitle>24H</ListTitle>
+            </ListRow>
+          </thead>
+          <tbody>
+            {data.splice(0, 10).map((crypto, idx) => {
+              return (
+                <ListRow key={idx}>
+                  <ListDetails>
+                    <Flex>
+                      <Logo src={crypto.image} />
+                      {crypto.name}
+                    </Flex>
+                  </ListDetails>
+                  <ListDetails>${crypto.current_price}</ListDetails>
+                  <ListDetails>
+                    {crypto.price_change_percentage_24h_in_currency.toFixed(2)}%
+                  </ListDetails>
+                </ListRow>
+              );
+            })}
+          </tbody>
+        </List>
+      </MobView>
+    </>
   );
 };
 
 export default ListTable;
 
-const Container = styled.div`
+const WebView = styled.div`
   overflow-x: auto;
   padding: 0 10%;
   @media (max-width: 768px) {
-    padding: 0 5%;
+    display: none;
+  }
+`;
+
+const MobView = styled.div`
+  overflow-x: auto;
+  padding: 0 5%;
+  @media (min-width: 768px) {
+    display: none;
   }
 `;
 const List = styled.table`
   width: 100%;
-  font-size: 10px;
+  font-size: 12px;
 `;
 const ListRow = styled.tr``;
 const ListTitle = styled.th`
