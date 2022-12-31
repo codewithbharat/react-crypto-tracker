@@ -156,7 +156,13 @@ const ListTable = () => {
                 }
                 onClick={() => pagination(page)}
               >
-                {page}
+                <span
+                  style={{
+                    cursor: `pointer`,
+                  }}
+                >
+                  {page}
+                </span>
               </PageNo>
             ))}
           </Pages>
