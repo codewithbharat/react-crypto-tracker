@@ -1,7 +1,7 @@
 import React from "react";
 
 const SliderTop = () => {
-  return;
+  return <div>SliderTop</div>;
 };
 
 export default SliderTop;
