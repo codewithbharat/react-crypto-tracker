@@ -31,7 +31,37 @@ const SliderTop = () => {
     <div className="SliderTop">
       <Carousel breakPoints={breakPoints}>
         {content.map((data, idx) => (
-          <Item key={idx}>{data.title}</Item>
+          <Item key={idx}>
+            <div>
+              <img
+                style={{
+                  width: `70px`,
+                }}
+                src={`/images/${data.id}.png`}
+                alt=""
+              />
+            </div>
+            <div
+              style={{
+                padding: `10px`,
+              }}
+            >
+              <p
+                style={{
+                  color: `#656C7E`,
+                }}
+              >
+                {data.title}
+              </p>
+              <p
+                style={{
+                  fontWeight: `600`,
+                }}
+              >
+                {data.desc}
+              </p>
+            </div>
+          </Item>
         ))}
       </Carousel>
     </div>
@@ -41,8 +71,8 @@ const SliderTop = () => {
 export default SliderTop;
 
 const Item = styled.div`
+  padding: 0 15px;
   display: flex;
-  justify-content: center;
   align-items: center;
   height: 15vh;
   width: 100%;
