@@ -19,12 +19,12 @@ const SliderTop = () => {
     {
       id: `2`,
       title: `Portfolio 🔥`,
-      desc: `Track your trades in one place, not all over the place`,
+      desc: `Track your trades in one place`,
     },
     {
       id: `3`,
       title: `Portfolio`,
-      desc: `Track your trades in one place, not all over the place`,
+      desc: `Track your trades in one place`,
     },
   ];
   return (
