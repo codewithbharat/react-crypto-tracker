@@ -136,7 +136,11 @@ const ListTable = () => {
                       <Cirdiv></Cirdiv>
                     </CirDivWrap>
                   </ListDetails>
-                  <ListDetails>
+                  <ListDetails
+                    style={{
+                      cursor: `pointer`,
+                    }}
+                  >
                     <BsThreeDotsVertical />
                   </ListDetails>
                 </ListRow>
