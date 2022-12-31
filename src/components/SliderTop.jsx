@@ -71,7 +71,7 @@ const SliderTop = () => {
 export default SliderTop;
 
 const Item = styled.div`
-  padding: 25px 0;
+  margin-top: 25px 0;
   display: flex;
   align-items: center;
   height: 120px;
