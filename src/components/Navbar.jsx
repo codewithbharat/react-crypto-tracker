@@ -75,7 +75,6 @@ const Overlay = styled.div`
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.347);
 `;
 
 const SideBar = styled.div`
@@ -88,8 +87,8 @@ const SideBar = styled.div`
   top: 0;
   left: 0;
   bottom: 0;
-  border-right: 1px solid black;
-  background: rgba(255, 255, 255, 0.911);
+  background: #ffffff;
+  box-shadow: 0px 1.47737px 17.7284px 4.43211px rgba(208, 214, 227, 0.3);
 `;
 
 const SideLinks = styled.div`
