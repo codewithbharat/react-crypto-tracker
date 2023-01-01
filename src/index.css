@@ -21,7 +21,7 @@ body {
   background-color: rgba(0, 0, 0, 0.223)  !important;
   transition: all 0.3s ease;
   font-size: 1.1rem !important;
-  color: balck !important;
+  color: black !important;
   width: 1.7rem !important;
   height: 1.7rem !important;
   min-width: 1.7rem !important;
@@ -37,13 +37,16 @@ body {
 .rec-dot_active {
   background-color: rgba(0, 0, 0, 0.536) !important;
   box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.536) !important;
+  color: black;
 }
 .rec-dot:focus,
 .rec-dot:hover {
   box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.536) !important;
+  color: black;
 }
 .rec-dot_active:focus,
 .rec-dot_active:hover {
   background-color: rgba(0, 0, 0, 0.536)  !important;
   box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.536) !important;
+  color: black;
 }
