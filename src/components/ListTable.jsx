@@ -442,7 +442,7 @@ const List = styled.table`
 const ListRow = styled.tr`
   transition: all 0.3s ease;
   &:hover:not(:disabled) {
-    transform: scale(1.05);
+    transform: scale(1.005);
     box-shadow: 0px 1.47737px 17.7284px 4.43211px rgba(208, 214, 227, 0.3);
     border-radius: 12px;
     border: none;
