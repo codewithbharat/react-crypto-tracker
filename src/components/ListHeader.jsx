@@ -13,7 +13,7 @@ const ListHeader = () => {
               <AiOutlineStar />
               Favourites
             </LeftBtnItems>
-            <LeftBtnItems>CryptoCurrencies</LeftBtnItems>
+            <LeftBtnItems>Crypto Currencies</LeftBtnItems>
             <LeftBtnItems>DeFi</LeftBtnItems>
             <LeftBtnItems>NFTs & Collectibles</LeftBtnItems>
           </LeftButtons>
