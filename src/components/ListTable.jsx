@@ -103,8 +103,20 @@ const ListTable = () => {
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </ListDetails>
                   <ListDetails>
-                    <Wrap24H>
-                      <RiArrowDownSFill />
+                    <Wrap24H
+                      style={
+                        crypto.price_change_percentage_24h_in_currency.toString()[0] ===
+                        "-"
+                          ? { color: `red` }
+                          : { color: `green` }
+                      }
+                    >
+                      {crypto.price_change_percentage_24h_in_currency.toString()[0] ===
+                      "-" ? (
+                        <RiArrowDownSFill />
+                      ) : (
+                        <RiArrowUpSFill />
+                      )}
                       {crypto.price_change_percentage_24h_in_currency.toFixed(
                         2
                       )}
@@ -112,8 +124,20 @@ const ListTable = () => {
                     </Wrap24H>
                   </ListDetails>
                   <ListDetails>
-                    <Wrap7D>
-                      <RiArrowUpSFill />
+                    <Wrap7D
+                      style={
+                        crypto.price_change_percentage_7d_in_currency.toString()[0] ===
+                        "-"
+                          ? { color: `red` }
+                          : { color: `green` }
+                      }
+                    >
+                      {crypto.price_change_percentage_7d_in_currency.toString()[0] ===
+                      "-" ? (
+                        <RiArrowDownSFill />
+                      ) : (
+                        <RiArrowUpSFill />
+                      )}
                       {crypto.price_change_percentage_7d_in_currency.toFixed(2)}
                       %
                     </Wrap7D>
@@ -216,8 +240,20 @@ const ListTable = () => {
                       .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
                   </ListDetails>
                   <ListDetails>
-                    <Wrap24H>
-                      <RiArrowDownSFill />
+                    <Wrap24H
+                      style={
+                        crypto.price_change_percentage_24h_in_currency.toString()[0] ===
+                        "-"
+                          ? { color: `red` }
+                          : { color: `green` }
+                      }
+                    >
+                      {crypto.price_change_percentage_24h_in_currency.toString()[0] ===
+                      "-" ? (
+                        <RiArrowDownSFill />
+                      ) : (
+                        <RiArrowUpSFill />
+                      )}
                       {crypto.price_change_percentage_24h_in_currency.toFixed(
                         2
                       )}
@@ -298,8 +334,20 @@ const ListTable = () => {
                 <div>
                   <div>24H</div>
                   <div>
-                    <Wrap24H>
-                      <RiArrowDownSFill />
+                    <Wrap24H
+                      style={
+                        popData.price_change_percentage_24h_in_currency.toString()[0] ===
+                        "-"
+                          ? { color: `red` }
+                          : { color: `green` }
+                      }
+                    >
+                      {popData.price_change_percentage_24h_in_currency.toString()[0] ===
+                      "-" ? (
+                        <RiArrowDownSFill />
+                      ) : (
+                        <RiArrowUpSFill />
+                      )}
                       {popData.price_change_percentage_24h_in_currency.toFixed(
                         2
                       )}
@@ -310,8 +358,20 @@ const ListTable = () => {
                 <div>
                   <div>7D</div>
                   <div>
-                    <Wrap7D>
-                      <RiArrowUpSFill />
+                    <Wrap7D
+                      style={
+                        popData.price_change_percentage_7d_in_currency.toString()[0] ===
+                        "-"
+                          ? { color: `red` }
+                          : { color: `green` }
+                      }
+                    >
+                      {popData.price_change_percentage_7d_in_currency.toString()[0] ===
+                      "-" ? (
+                        <RiArrowDownSFill />
+                      ) : (
+                        <RiArrowUpSFill />
+                      )}
                       {popData.price_change_percentage_7d_in_currency.toFixed(
                         2
                       )}
@@ -468,12 +528,9 @@ const LogoSym = styled.span`
 
 const Wrap24H = styled.span`
   display: felx;
-  color: #ea3943;
 `;
 
-const Wrap7D = styled.span`
-  color: #16c784;
-`;
+const Wrap7D = styled.span``;
 
 const CirDivWrap = styled.div`
   height: 8px;
