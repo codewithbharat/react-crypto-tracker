@@ -18,7 +18,7 @@ body {
 
 .rec-arrow {
     
-  background-color: var(--blue) !important;
+  background-color: rgba(0, 0, 0, 0.223)  !important;
   transition: all 0.3s ease;
   font-size: 1.1rem !important;
   color: balck !important;
@@ -31,4 +31,19 @@ body {
 
 .rec-arrow:hover:not(:disabled) {
   transform: scale(1.2);
+}
+
+
+.rec-dot_active {
+  background-color: rgba(0, 0, 0, 0.536) !important;
+  box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.536) !important;
+}
+.rec-dot:focus,
+.rec-dot:hover {
+  box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.536) !important;
+}
+.rec-dot_active:focus,
+.rec-dot_active:hover {
+  background-color: rgba(0, 0, 0, 0.536)  !important;
+  box-shadow: 0 0 1px 3px rgba(0, 0, 0, 0.536) !important;
 }
