@@ -66,6 +66,10 @@ const LeftBtnItems = styled.div`
   line-height: 18px;
   background: #eff2f5;
   cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
 `;
 const RightButtons = styled.div`
   display: flex;

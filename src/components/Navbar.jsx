@@ -125,6 +125,10 @@ const Container = styled.div`
 const Logo = styled.div`
   display: flex;
   align-items: center;
+  transition: all 0.3s ease;
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
 `;
 const LogoIcon = styled(TbCurrencyCent)`
   width: 40px;
@@ -145,6 +149,10 @@ const Search = styled(TbSearch)`
   width: 40px;
   height: 40px;
   margin-right: 10px;
+  transition: all 0.3s ease;
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
   @media (max-width: 768px) {
     display: none;
   }
@@ -152,4 +160,8 @@ const Search = styled(TbSearch)`
 const BurgerMenu = styled(TbMenu2)`
   width: 40px;
   height: 40px;
+  transition: all 0.3s ease;
+  &:hover:not(:disabled) {
+    transform: scale(1.05);
+  }
 `;
