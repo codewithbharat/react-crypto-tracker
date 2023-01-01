@@ -93,7 +93,7 @@ const SideBar = styled.div`
 `;
 
 const SideLinks = styled.div`
-  margin: 10px 100px;
+  margin: 10px 60px;
 `;
 
 const Container = styled.div`
