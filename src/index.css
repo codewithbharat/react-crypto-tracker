@@ -15,3 +15,20 @@ body {
   justify-content: center;
   height: 20vh;
 }
+
+.rec-arrow {
+    
+  background-color: var(--blue) !important;
+  transition: all 0.3s ease;
+  font-size: 1.1rem !important;
+  color: balck !important;
+  width: 1.7rem !important;
+  height: 1.7rem !important;
+  min-width: 1.7rem !important;
+  line-height: 1.7rem !important;
+ 
+}
+
+.rec-arrow:hover:not(:disabled) {
+  transform: scale(1.2);
+}
