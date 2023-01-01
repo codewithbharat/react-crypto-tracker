@@ -72,7 +72,21 @@ const ListTable = () => {
                 <ListRow key={idx}>
                   <ListDetails>
                     <Flex>
-                      <AiOutlineStar /> {crypto.market_cap_rank}
+                      <div
+                        onMouseOver={({ target }) =>
+                          (target.style.color = "yellow")
+                        }
+                        onMouseOut={({ target }) =>
+                          (target.style.color = "black")
+                        }
+                      >
+                        <AiOutlineStar
+                          style={{
+                            cursor: `pointer`,
+                          }}
+                        />
+                      </div>
+                      {crypto.market_cap_rank}
                     </Flex>
                   </ListDetails>
                   <ListDetails>

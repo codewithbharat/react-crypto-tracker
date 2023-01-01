@@ -12,13 +12,26 @@ const Navbar = () => {
   return (
     <div>
       <Container>
-        <Logo>
+        <Logo
+          style={{
+            cursor: `pointer`,
+          }}
+        >
           <LogoIcon />
           <LogoTxt>crypto tracker</LogoTxt>
         </Logo>
         <Menu>
-          <Search />
-          <BurgerMenu onClick={() => toggler()} />
+          <Search
+            style={{
+              cursor: `pointer`,
+            }}
+          />
+          <BurgerMenu
+            style={{
+              cursor: `pointer`,
+            }}
+            onClick={() => toggler()}
+          />
         </Menu>
       </Container>
       {toggle && (

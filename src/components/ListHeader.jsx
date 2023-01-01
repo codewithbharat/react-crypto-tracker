@@ -64,11 +64,13 @@ const LeftBtnItems = styled.div`
   font-weight: 600;
   font-size: 12px;
   line-height: 18px;
-  background: #eff2f5; ;
+  background: #eff2f5;
+  cursor: pointer;
 `;
 const RightButtons = styled.div`
   display: flex;
   align-items: center;
+  cursor: pointer;
 `;
 
 const RightBtnText = styled.div`
